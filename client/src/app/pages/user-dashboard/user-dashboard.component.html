@@ -1,0 +1,42 @@
+<div class="text-center mt-3">
+  <h1>My Account at glance</h1>
+  <hr>
+</div>
+<div class="d-flex flex-row justify-content-between card ms-5 me-5 mb-3 mt-3 p-3">
+  <app-light-info
+    *ngFor="let info of accountInfoList "
+    [infoLight]="info"
+  ></app-light-info>
+</div>
+<div class="card mb-3">
+  <div class="p-3 d-flex flex-row align-items-start text-center justify-content-center">
+
+    <div class="me-3">
+      <label class="form-label">Start date</label><br>
+      <ngx-datepicker [options]="dateOptions" [(ngModel)]="startDate"></ngx-datepicker>
+    </div>
+
+    <div class="">
+      <label class="form-label">Start date</label><br>
+      <ngx-datepicker [options]="dateOptions" [(ngModel)]="endDate"></ngx-datepicker>
+    </div>
+
+    <div class="ms-2 mt-2">
+      <label class="form-label"></label><br>
+      <button (click)="filerStatics()">Search</button>
+    </div>
+  </div>
+  <div class="mb-3 d-flex flex-row justify-content-center">
+      <div class="card me-5 p-3 col-5">
+        <canvas [title]="'my awesome chart'" id="chartLineId">
+
+        </canvas>
+      </div>
+
+    <div class="card ms-5 col-5">
+      <canvas [title]="'my awesome chart'" id="chartPieId">
+
+      </canvas>
+    </div>
+  </div>
+</div>

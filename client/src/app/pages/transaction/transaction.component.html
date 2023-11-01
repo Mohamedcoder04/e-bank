@@ -1,0 +1,43 @@
+<div class="text-center">
+  <h1> My Transaction </h1>
+  <hr>
+</div>
+<div class="d-flex mt-3 me-3 ms-3 justify-content-end">
+  <a [routerLink]="'/user/new-transaction'" class="btn btn-success mb-2">
+    <span class="fas fa-plus"></span>
+    &nbsp; New Transaction
+  </a>
+</div>
+<div class="mb-3">
+  <table class="table table-bordered ">
+    <thead>
+    <tr>
+      <td>DATE</td>
+      <td>AMOUNT</td>
+      <td>IBAN</td>
+      <td>TYPE</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let t of transactions">
+      <td> {{ t.transactionDate }} </td>
+      <td>
+        <span
+              [class.text-danger]="t.type === 'TRANSFERT'"
+              [class.text-success]="t.type === 'DEPOSIT'"
+        >{{ t.amount }}</span>
+      </td>
+      <td> {{ t.destinationIban }} </td>
+      <td>
+          <span class="badge"
+                [class.bg-warning]="t.type === 'TRANSFERT'"
+                [class.bg-success]="t.type === 'DEPOSIT'"
+          >
+            {{ t.type }}
+          </span>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

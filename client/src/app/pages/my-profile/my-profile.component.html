@@ -1,0 +1,56 @@
+<div class="text-center">
+  <h1> My Profile </h1>
+  <hr>
+</div>
+
+<div class="d-flex flex-row justify-content-between mb-3">
+  <div class="card p-3 col-6" >
+    <div class="text-center"><h2> Personal info </h2></div>
+
+    <div class="mb-2">
+      <label for="firstName" class="form-label">First Name</label>
+      <input [(ngModel)]="userDto.firstName" type="text" class="form-control" id="firstName" aria-describedby="emailHelp">
+    </div>
+
+    <div class="mb-2">
+      <label for="lastName" class="form-label">Last Name</label>
+      <input [(ngModel)]="userDto.lastName" type="text" class="form-control" id="lastName" aria-describedby="emailHelp">
+    </div>
+
+    <div class="mb-2">
+      <label for="email" class="form-label ">Email</label>
+      <input [(ngModel)]="userDto.email" type="text" class="form-control" id="email" disabled aria-describedby="emailHelp">
+    </div>
+
+  </div>
+
+  <div class="card p-3 ms-1 col-6">
+    <div class="text-center"><h2> Address </h2></div>
+    <div class="mb-2">
+      <label for="street" class="form-label">Street</label>
+      <input [(ngModel)]="addressDto.street" type="text" class="form-control" id="street">
+    </div>
+
+    <div class="mb-2">
+      <label for="city" class="form-label">City</label>
+      <input [(ngModel)]="addressDto.city" type="text" class="form-control" id="city">
+    </div>
+
+    <div class="mb-2">
+      <label for="zipCode" class="form-label ">Zip Code</label>
+      <input [(ngModel)]="addressDto.zipCode" type="number" class="form-control" id="zipCode">
+    </div>
+  </div>
+</div>
+
+<div class="d-flex mb-3 justify-content-end">
+  <button class="btn btn-danger me-3">
+    <em class="fas fa-arrow-alt-circle-left"></em> &nbsp; Return
+  </button>
+
+  <button class="btn btn-success">
+    <em class="fas fa-save"></em> &nbsp; Save
+  </button>
+
+</div>
+

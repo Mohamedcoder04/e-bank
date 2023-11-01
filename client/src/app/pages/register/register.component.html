@@ -1,0 +1,59 @@
+<div class="container mt-5">
+  <div class="row my-5">
+    <div class="col-md-12 mx-auto">
+      <div class="card">
+        <div class="card-header text-center">
+          <h1>Create An Account</h1>
+          <hr>
+        </div>
+        <div class="alert alert-danger" *ngIf="errorMessages.length">
+          <p *ngFor="let msg of errorMessages"> {{ msg }} </p>
+        </div>
+        <div class="form-control mt-3">
+
+          <div class="mb-3">
+            <label for="fisrtname" class="form-label">First Name :</label>
+            <input [(ngModel)]="userDto.firstName" type="email" class="form-control" id="fisrtname"
+                   aria-describedby="emailHelp" placeholder="create your first name">
+          </div>
+
+          <div class="mb-3">
+            <label for="lastname" class="form-label">Last Name :</label>
+            <input [(ngModel)]="userDto.lastName" type="email" class="form-control" id="lastname"
+                   aria-describedby="emailHelp" placeholder="create your last name">
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address :</label>
+            <input [(ngModel)]="userDto.email" type="email" class="form-control" id="exampleInputEmail1"
+                   aria-describedby="emailHelp" placeholder="exemple@gmail.com">
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password :</label>
+            <input [(ngModel)]="userDto.password" type="password" class="form-control" id="exampleInputPassword1"
+                   placeholder="create your password">
+          </div>
+
+          <!--          <div class="mb-3">-->
+          <!--            <label for="repeatpassword" class="form-label">Repeat password :</label>-->
+          <!--            <input type="password" class="form-control" id="repeatpassword" placeholder="repeat the password">-->
+          <!--          </div>-->
+
+          <div class="d-flex justify-content-center">
+
+            <button (click)="register()" type="submit" class="btn btn-success me-3">
+              <em class="fas fa-user-alt">&nbsp; Register</em>
+            </button>
+
+            <button (click)="login()" type="submit" class="btn btn-primary ">
+              <em class="fas fa-sign-in-alt">&nbsp; Sign in</em>
+            </button>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

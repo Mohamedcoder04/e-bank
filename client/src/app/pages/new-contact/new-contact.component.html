@@ -1,0 +1,40 @@
+<div class="text-center">
+  <h1 *ngIf="!testNew"> New Contact </h1>
+  <h1 *ngIf="testNew"> Modify Contact </h1>
+  <hr>
+</div>
+<div class="card p-3 mb-3">
+  <div class="mb-3">
+    <label for="firstName" class="form-label">First Name</label>
+    <input [(ngModel)]="contact.firstName" type="text" class="form-control" id="firstName">
+  </div>
+
+  <div class="mb-3">
+    <label for="lastName" class="form-label">Last Name</label>
+    <input [(ngModel)]="contact.lastName" type="text" class="form-control" id="lastName">
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input [(ngModel)]="contact.email" type="text" class="form-control" id="email">
+  </div>
+
+  <div class="mb-3">
+    <label for="iban" class="form-label">IBAN</label>
+    <input [(ngModel)]="contact.iban" type="text" class="form-control" id="iban">
+  </div>
+
+  <div class="d-flex justify-content-end">
+
+    <button (click)="cancel()" class="btn btn-danger me-3">
+      <em class="fas fa-arrow-alt-circle-left"></em> &nbsp; return
+    </button>
+
+    <button (click)="save()" class="btn btn-success">
+      <em class="fas fa-add"></em> &nbsp; Add
+    </button>
+
+
+  </div>
+
+</div>

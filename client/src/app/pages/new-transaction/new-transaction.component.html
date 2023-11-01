@@ -1,0 +1,50 @@
+<div class="text-center">
+  <h2> New Transaction </h2>
+  <hr>
+</div>
+<div class="card p-3 mb-3">
+  <h2 > Your Account Balance : <span class="text-success">{{ accountBalance }} $</span> </h2>
+
+
+  <div class="mb-3">
+    <label class="form-label">Transaction Type</label>
+    <select [(ngModel)]="transaction.type" class="form-select"  >
+      <option [ngValue]="''" disabled>Select the type</option>
+      <option [ngValue]="'TRANSFERT'">TRANSFERT</option>
+      <option [ngValue]="'DEPOSIT'">DEPOSIT</option>
+    </select>
+  </div>
+
+  <div class="mb-3 mt-3" *ngIf="transaction.type == 'TRANSFERT'">
+    <label class="form-label">Contact</label>
+    <select [(ngModel)]="transaction.destinationIban" class="form-select" aria-label="Default select example">
+      <option [ngValue]="''">Select the contact</option>
+      <option *ngFor="let c of contacts" [ngValue]="c.iban"> {{ c.firstName +' '+ c.lastName }} </option>
+    </select>
+  </div>
+
+  <div class="mb-3" *ngIf="transaction.type">
+    <label for="amount" class="form-label"> Amount </label>
+    <input [(ngModel)]="transaction.amount" id="amount" type="number" class="form-control"/>
+  </div>
+
+  <div class="mb-3" *ngIf="transaction.type == 'TRANSFERT'">
+    <label for="iban" class="form-label"> IBAN </label>
+    <input [(ngModel)]="transaction.destinationIban" id="iban" type="text" class="form-control"/>
+  </div>
+
+  <div class="d-flex justify-content-end">
+
+    <button (click)="cancel()" type="button" class="btn btn-danger me-3">
+      <em class="fas fa-times"></em> &nbsp; Cancel
+    </button>
+
+    <button (click)="save()" type="button" class="btn btn-success">
+      <em class="fas fa-save"></em> &nbsp; Save
+    </button>
+
+  </div>
+
+</div>
+
+

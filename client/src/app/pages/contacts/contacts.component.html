@@ -1,0 +1,59 @@
+<div class="text-center">
+  <h1> My Contact List </h1>
+  <hr>
+</div>
+<div class="d-flex mt-3 me-3 ms-3 justify-content-end">
+  <a [routerLink]="'/user/new-contact'" class="btn btn-success mb-2">
+    <span class="fas fa-plus"></span>
+    &nbsp; New Contact
+  </a>
+</div>
+<div class="mb-3">
+  <table class="table table-bordered text-center">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>IBAN</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of contacts">
+        <td> {{ c.firstName }} </td>
+        <td> {{ c.lastName }} </td>
+        <td> {{ c.email }} </td>
+        <td> {{ c.iban }} </td>
+        <td>
+          <em (click)="update(c.id)" class="fas fa-edit text-warning cursor-pointer"></em> &nbsp; | &nbsp;
+          <em (click)="contactIdToDelete = c.id" class="fas fa-trash text-danger cursor-pointer" data-bs-toggle="modal" data-bs-target="#exampleModal" ></em>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation!</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          vous êtes sûr que vous voulez supprimer le contact !!!!!!
+      </div>
+      <div class="modal-footer">
+        <button (click)="contactIdToDelete = -1" type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          <em class="fas fa-times"></em> &nbsp; Close
+        </button>
+        <button (click)="delete()"  type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          <em class="fas fa-trash"></em> &nbsp; Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
